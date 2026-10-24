@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NEET Demo Application Form</title>
+</head>
+<body>
+
+    <h1 align="center">NEET Examination 2026</h1>
+    <h2 align="center">Application Form (Demo Only)</h2>
+
+    <hr>
+
+    <form>
+        <h3>1. Personal Details</h3>
+
+        <label>Full Name:</label>
+        <input type="text" name="name" required>
+        <br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob">
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+
+        <label>Father's Name:</label>
+        <input type="text" name="father">
+        <br><br>
+
+        <label>Mother's Name:</label>
+        <input type="text" name="mother">
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email">
+        <br><br>
+
+        <label>Mobile Number:</label>
+        <input type="tel" name="mobile">
+        <br><br>
+
+        <hr>
+
+        <h3>2. Academic Details</h3>
+
+        <label>Class 12 Status:</label>
+        <select name="qualification">
+            <option>Select Status</option>
+            <option>Passed</option>
+            <option>Appearing</option>
+        </select>
+        <br><br>
+
+        <label>School Name:</label>
+        <input type="text" name="school">
+        <br><br>
+
+        <label>Board:</label>
+        <select name="board">
+            <option>Select Board</option>
+            <option>CBSE</option>
+            <option>ICSE</option>
+            <option>State Board</option>
+            <option>Other</option>
+        </select>
+        <br><br>
+
+        <label>Subjects:</label>
+        <input type="checkbox" name="subjects" value="Physics"> Physics
+        <input type="checkbox" name="subjects" value="Chemistry"> Chemistry
+        <input type="checkbox" name="subjects" value="Biology"> Biology
+        <br><br>
+
+        <hr>
+
+        <h3>3. Examination Details</h3>
+
+        <label>Category:</label>
+        <select name="category">
+            <option>Select Category</option>
+            <option>General</option>
+            <option>OBC-NCL</option>
+            <option>SC</option>
+            <option>ST</option>
+            <option>EWS</option>
+        </select>
+        <br><br>
+
+        <label>Preferred Exam City:</label>
+        <input type="text" name="city">
+        <br><br>
+
+        <label>Question Paper Medium:</label>
+        <select name="medium">
+            <option>English</option>
+            <option>Hindi</option>
+            <option>Bengali</option>
+            <option>Other</option>
+        </select>
+        <br><br>
+
+        <hr>
+
+        <h3>4. Address Details</h3>
+
+        <label>Full Address:</label>
+        <textarea name="address" rows="4" cols="30"></textarea>
+        <br><br>
+
+        <label>City:</label>
+        <input type="text" name="city">
+        <br><br>
+
+        <label>State:</label>
+        <input type="text" name="state">
+        <br><br>
+
+        <label>PIN Code:</label>
+        <input type="text" name="pincode">
+        <br><br>
+
+        <hr>
+
+        <h3>5. Document Upload (Demo)</h3>
+
+        <label>Upload Photograph:</label>
+        <input type="file" name="photo" accept="image/*">
+        <br><br>
+
+        <label>Upload Signature:</label>
+        <input type="file" name="signature" accept="image/*">
+        <br><br>
+
+        <hr>
+
+        <h3>Declaration</h3>
+
+        <input type="checkbox" name="declaration" required>
+        I declare that the information provided is correct.
+        <br><br>
+
+        <input type="submit" value="Submit Application">
+        <input type="reset" value="Reset Form">
+
+    </form>
+
+    <hr>
+
+    <p align="center">
+        <b>This is a demo form for educational purposes only.</b>
+    </p>
+
+</body>
+</html>
