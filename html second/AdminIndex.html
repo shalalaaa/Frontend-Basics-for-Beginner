@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPlus – Student Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="AdminStyle.css">
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="8" y2="18"/><line x1="12" y1="18" x2="12" y2="18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 8a5 5 0 0 1 0 8"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+    <symbol id="i-userplus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4 20h16l-6-11V3"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-downarrow" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="0 0 48 48" fill="none">
+        <path d="M24 6L3 16l21 10 21-10L24 6z" fill="#ff4fa3"/>
+        <path d="M11 22v9c0 3 6 7 13 7s13-4 13-7v-9l-13 6-13-6z" fill="#ff7fc0"/>
+        <path d="M43 17v12" stroke="#ff4fa3" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>EduPlus</h1>
+        <p>Student Management System</p>
+      </div>
+    </div>
+
+    <button class="profile" data-view="profile" aria-label="Open profile">
+      <div class="avatar avatar-lg">AD</div>
+      <div class="profile-info">
+        <h3>Admin</h3>
+        <span class="status"><i></i>Available for work</span>
+      </div>
+    </button>
+
+    <nav class="nav">
+      <button type="button" class="active" data-view="dashboard"><svg class="ic"><use href="#i-home"/></svg>Dashboard</button>
+      <button type="button" data-view="profile"><svg class="ic"><use href="#i-user"/></svg>My Profile</button>
+      <button type="button" data-view="students"><svg class="ic"><use href="#i-users"/></svg>Students</button>
+      <button type="button" data-view="attendance"><svg class="ic"><use href="#i-calendar"/></svg>Attendance Log</button>
+      <button type="button" data-view="timetable"><svg class="ic"><use href="#i-clock"/></svg>Manage Timetable</button>
+      <button type="button" data-view="courses"><svg class="ic"><use href="#i-book"/></svg>Courses</button>
+      <button type="button" data-view="announcements"><svg class="ic"><use href="#i-megaphone"/></svg>Announcements</button>
+      <button type="button" data-view="settings"><svg class="ic"><use href="#i-settings"/></svg>Settings</button>
+    </nav>
+
+    <div class="quote-card">
+      <svg viewBox="0 0 160 110" class="quote-art">
+        <circle cx="45" cy="30" r="16" fill="#cfe0ff"/>
+        <circle cx="70" cy="22" r="9" fill="#ffd3ea"/>
+        <path d="M118 90c0-24-6-40 4-56 8 12 14 28 4 56z" fill="#5fd3a0"/>
+        <path d="M126 90c2-18 10-28 22-34-2 16-8 28-22 34z" fill="#3fbf8a"/>
+        <rect x="20" y="90" width="110" height="8" rx="4" fill="#4a5cf0"/>
+        <rect x="24" y="82" width="46" height="8" rx="3" fill="#ff6fb1"/>
+        <circle cx="76" cy="40" r="13" fill="#2b2d52"/>
+        <circle cx="76" cy="44" r="9" fill="#f5c9a8"/>
+        <path d="M58 88c0-20 8-32 18-32s18 12 18 32z" fill="#ffb347"/>
+        <rect x="74" y="68" width="36" height="22" rx="3" fill="#3d63ff"/>
+      </svg>
+      <p>“Education is the most powerful weapon which you can use to change the world.”</p>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <header class="topbar">
+      <label class="search">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input type="text" placeholder="Search anything...">
+      </label>
+      <div class="top-actions">
+        <div class="notif-wrap">
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+            <svg class="ic"><use href="#i-bell"/></svg>
+          </button>
+          <div class="notif-panel" id="notifPanel" hidden>
+            <div class="notif-head"><strong>Notifications</strong><button type="button" id="notifClear">Clear all</button></div>
+            <ul id="notifList">
+              <li><div class="act-ic purple"><svg class="ic"><use href="#i-userplus"/></svg></div><div><strong>New student added</strong><small>Rohan Mehta - Class 10A · 2 hours ago</small></div></li>
+              <li><div class="act-ic green"><svg class="ic"><use href="#i-calendar"/></svg></div><div><strong>Attendance updated</strong><small>Class 10A - 28 students · 3 hours ago</small></div></li>
+              <li><div class="act-ic pink"><svg class="ic"><use href="#i-megaphone"/></svg></div><div><strong>New announcement</strong><small>Exam schedule - 7 Nov 2025 · 1 day ago</small></div></li>
+            </ul>
+            <p class="notif-empty" hidden>You're all caught up 🎉</p>
+          </div>
+        </div>
+        <button type="button" class="icon-btn" id="fsBtn" aria-label="Fullscreen"><svg class="ic"><use href="#i-expand"/></svg></button>
+        <button type="button" class="user-chip" data-view="profile" aria-label="Open profile">
+          <div class="avatar avatar-sm">AD</div>
+          <div><strong>Admin</strong></div>
+          <svg class="ic chev"><use href="#i-down"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="content view active" id="view-dashboard">
+
+      <!-- ===== LEFT COLUMN ===== -->
+      <section class="col-left">
+
+        <div class="welcome">
+          <p>Here's what's happening with your classes and students today.</p>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="stats">
+          <div class="stat pink">
+            <div class="stat-top">
+              <div class="stat-ic"><svg class="ic"><use href="#i-users"/></svg></div>
+              <span>Total Students</span>
+            </div>
+            <div class="stat-num">87</div>
+            <div class="stat-trend up"><svg class="ic"><use href="#i-up"/></svg>12%</div>
+            <small>vs. last month</small>
+          </div>
+          <div class="stat green">
+            <div class="stat-top">
+              <div class="stat-ic"><svg class="ic"><use href="#i-calendar"/></svg></div>
+              <span>Present Today</span>
+            </div>
+            <div class="stat-num">72</div>
+            <div class="stat-trend up"><svg class="ic"><use href="#i-up"/></svg>8%</div>
+            <small>vs. yesterday</small>
+          </div>
+          <div class="stat yellow">
+            <div class="stat-top">
+              <div class="stat-ic"><svg class="ic"><use href="#i-clock"/></svg></div>
+              <span>Absent Today</span>
+            </div>
+            <div class="stat-num">15</div>
+            <div class="stat-trend down"><svg class="ic"><use href="#i-downarrow"/></svg>5%</div>
+            <small>vs. yesterday</small>
+          </div>
+          <div class="stat purple">
+            <div class="stat-top">
+              <div class="stat-ic"><svg class="ic"><use href="#i-file"/></svg></div>
+              <span>Classes Today</span>
+            </div>
+            <div class="stat-num">5</div>
+            <div class="stat-trend up"><svg class="ic"><use href="#i-up"/></svg>1%</div>
+            <small>vs. last week</small>
+          </div>
+        </div>
+
+        <div class="left-grid">
+
+          <!-- Attendance overview -->
+          <div class="card attendance">
+            <div class="card-head">
+              <h3>Attendance Overview</h3>
+              <div class="legend">
+                <span><i class="dot green"></i>Present</span>
+                <span><i class="dot pink"></i>Absent</span>
+              </div>
+            </div>
+            <div class="bar-chart">
+              <div class="y-axis"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+              <div class="plot">
+                <div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="bars">
+                  <div class="bar-col"><div class="bar" style="height:80%"><em class="abs" style="height:19%"></em><em class="pre"></em></div><label>Mon<br>20 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:66%"><em class="abs" style="height:21%"></em><em class="pre"></em></div><label>Tue<br>21 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:81%"><em class="abs" style="height:22%"></em><em class="pre"></em></div><label>Wed<br>22 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:93%"><em class="abs" style="height:26%"></em><em class="pre"></em></div><label>Thu<br>23 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:73%"><em class="abs" style="height:20%"></em><em class="pre"></em></div><label>Fri<br>24 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:69%"><em class="abs" style="height:20%"></em><em class="pre"></em></div><label>Sat<br>25 Oct</label></div>
+                  <div class="bar-col"><div class="bar" style="height:55%"><em class="abs" style="height:17%"></em><em class="pre"></em></div><label>Sun<br>26 Oct</label></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent activities -->
+          <div class="card activities">
+            <h3>Recent Activities</h3>
+            <ul>
+              <li>
+                <div class="act-ic purple"><svg class="ic"><use href="#i-userplus"/></svg></div>
+                <div><strong>New student added</strong><span>Rohan Mehta - Class 10A</span><small>2 hours ago</small></div>
+              </li>
+              <li>
+                <div class="act-ic green"><svg class="ic"><use href="#i-calendar"/></svg></div>
+                <div><strong>Attendance updated</strong><span>Class 10A - 28 students</span><small>3 hours ago</small></div>
+              </li>
+              <li>
+                <div class="act-ic purple"><svg class="ic"><use href="#i-clock"/></svg></div>
+                <div><strong>Timetable changed</strong><span>Class 11B - Room 102</span><small>5 hours ago</small></div>
+              </li>
+              <li>
+                <div class="act-ic pink"><svg class="ic"><use href="#i-megaphone"/></svg></div>
+                <div><strong>New announcement</strong><span>Exam schedule - 7 Nov 2025</span><small>1 day ago</small></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Upcoming classes -->
+          <div class="card upcoming">
+            <div class="card-head">
+              <h3>Upcoming Classes</h3>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            <ul>
+              <li>
+                <div class="cls-ic red"><svg class="ic"><use href="#i-file"/></svg></div>
+                <div class="cls-info"><strong>Mathematics - Class 10A</strong><span>Today, 9:00 AM - 10:00 AM &nbsp;|&nbsp; Room 101</span></div>
+                <span class="badge ongoing">Ongoing</span>
+              </li>
+              <li>
+                <div class="cls-ic orange"><svg class="ic"><use href="#i-bookmark"/></svg></div>
+                <div class="cls-info"><strong>Physics - Class 11B</strong><span>Today, 10:15 AM - 11:15 AM &nbsp;|&nbsp; Room 102</span></div>
+                <span class="badge upcoming-b">Upcoming</span>
+              </li>
+              <li>
+                <div class="cls-ic violet"><svg class="ic"><use href="#i-file"/></svg></div>
+                <div class="cls-info"><strong>English - Class 10A</strong><span>Today, 12:00 PM - 1:00 PM &nbsp;|&nbsp; Room 101</span></div>
+                <span class="badge upcoming-b">Upcoming</span>
+              </li>
+              <li>
+                <div class="cls-ic red"><svg class="ic"><use href="#i-flask"/></svg></div>
+                <div class="cls-info"><strong>Chemistry - Class 12A</strong><span>Today, 2:00 PM - 3:00 PM &nbsp;|&nbsp; Room 103</span></div>
+                <span class="badge upcoming-b">Upcoming</span>
+              </li>
+              <li>
+                <div class="cls-ic orange"><svg class="ic"><use href="#i-book"/></svg></div>
+                <div class="cls-info"><strong>Biology - Class 11B</strong><span>Today, 4:00 PM - 5:00 PM &nbsp;|&nbsp; Room 104</span></div>
+                <span class="badge upcoming-b">Upcoming</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Keep inspiring -->
+          <div class="inspire">
+            <h3>Keep inspiring</h3>
+            <p>Great teachers<br>create great learners<br>and a better future.</p>
+            <svg viewBox="0 0 240 200" class="inspire-art">
+              <path d="M10 190c-4-40 6-70 24-90 6 30 4 60-24 90z" fill="#5fd3a0"/>
+              <path d="M34 190c10-30 30-46 50-50-4 26-24 46-50 50z" fill="#3fbf8a"/>
+              <rect x="30" y="170" width="90" height="12" rx="3" fill="#4a5cf0"/>
+              <rect x="38" y="158" width="76" height="12" rx="3" fill="#ffc542"/>
+              <rect x="34" y="146" width="80" height="12" rx="3" fill="#ff6fb1"/>
+              <circle cx="178" cy="46" r="26" fill="#2b2d52"/>
+              <circle cx="180" cy="54" r="18" fill="#f5c9a8"/>
+              <path d="M130 200c0-60 18-100 50-100s50 40 50 100z" fill="#ff4fa3"/>
+              <rect x="150" y="140" width="46" height="34" rx="4" fill="#ffc542"/>
+              <path d="M110 70l30 20" stroke="#f5c9a8" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== RIGHT COLUMN ===== -->
+      <section class="col-right">
+
+        <!-- Performance -->
+        <div class="card performance">
+          <div class="card-head">
+            <h3>Performance</h3>
+            <button class="select">Last 6 Months <svg class="ic"><use href="#i-down"/></svg></button>
+          </div>
+
+          <div class="perf-top">
+            <div class="donut">
+              <div class="donut-center">
+                <span>Total Score</span>
+                <strong>82%</strong>
+              </div>
+            </div>
+            <ul class="perf-legend">
+              <li><i class="sq pink"></i><span>Participation</span><b>55%</b></li>
+              <li><i class="sq yellow"></i><span>Quiz</span><b>15%</b></li>
+              <li><i class="sq blue"></i><span>Exam</span><b>10%</b></li>
+              <li><i class="sq lav"></i><span>Assignments</span><b>20%</b></li>
+            </ul>
+          </div>
+
+          <div class="line-chart">
+            <div class="y-axis"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+            <div class="line-plot">
+              <div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+              <svg viewBox="0 0 340 120" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ff4fa3" stop-opacity=".18"/>
+                    <stop offset="100%" stop-color="#ff4fa3" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M5 74 L60 58 L115 49 L170 45 L225 47 L285 31 L335 28 L335 120 L5 120 Z" fill="url(#lg)"/>
+                <polyline points="5,74 60,58 115,49 170,45 225,47 285,31 335,28" fill="none" stroke="#ff4fa3" stroke-width="2" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <i class="pt" style="left:1.5%;top:61.5%"></i>
+              <i class="pt" style="left:17.6%;top:48%"></i>
+              <i class="pt" style="left:33.8%;top:40.8%"></i>
+              <i class="pt" style="left:50%;top:37.5%"></i>
+              <i class="pt" style="left:66%;top:39%"></i>
+              <i class="pt" style="left:84%;top:25.8%"></i>
+              <i class="pt" style="left:98.5%;top:23%"></i>
+              <div class="x-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+            </div>
+          </div>
+
+          <div class="progress-note">
+            <div class="trophy"><svg class="ic"><use href="#i-trophy"/></svg></div>
+            <p>Great progress! Your overall performance<br>has improved by <b>12%</b> this month.</p>
+          </div>
+        </div>
+
+        <!-- Enrolled courses -->
+        <div class="card courses">
+          <div class="card-head">
+            <h3>Enrolled Courses</h3>
+            <label class="mini-search">
+              <svg class="ic"><use href="#i-search"/></svg>
+              <input type="text" placeholder="Search courses...">
+            </label>
+          </div>
+          <ul>
+            <li>
+              <div class="course-ic blue"><svg class="ic"><use href="#i-users"/></svg></div>
+              <div class="course-body">
+                <div class="course-row"><strong>Mathematics</strong><span class="badge ongoing sm">Ongoing</span></div>
+                <span class="course-meta">10A, 11A, 12A &nbsp;•&nbsp; 8 enrolled</span>
+                <div class="progress"><i style="width:75%"></i><b>75%</b></div>
+              </div>
+              <svg class="ic chev"><use href="#i-right"/></svg>
+            </li>
+            <li>
+              <div class="course-ic violet"><svg class="ic"><use href="#i-calendar"/></svg></div>
+              <div class="course-body">
+                <div class="course-row"><strong>Physics</strong><span class="badge ongoing sm">Ongoing</span></div>
+                <span class="course-meta">10A, 11B, 12B &nbsp;•&nbsp; 6 enrolled</span>
+                <div class="progress"><i style="width:60%"></i><b>60%</b></div>
+              </div>
+              <svg class="ic chev"><use href="#i-right"/></svg>
+            </li>
+            <li>
+              <div class="course-ic orange"><svg class="ic"><use href="#i-flask"/></svg></div>
+              <div class="course-body">
+                <div class="course-row"><strong>Chemistry</strong><span class="badge ongoing sm">Ongoing</span></div>
+                <span class="course-meta">11A, 12B &nbsp;•&nbsp; 5 enrolled</span>
+                <div class="progress"><i style="width:70%"></i><b>70%</b></div>
+              </div>
+              <svg class="ic chev"><use href="#i-right"/></svg>
+            </li>
+            <li>
+              <div class="course-ic violet"><svg class="ic"><use href="#i-book"/></svg></div>
+              <div class="course-body">
+                <div class="course-row"><strong>Biology</strong><span class="badge upcoming-b sm">Upcoming</span></div>
+                <span class="course-meta">10A, 11B &nbsp;•&nbsp; 4 enrolled</span>
+                <div class="progress"><i style="width:50%"></i><b>50%</b></div>
+              </div>
+              <svg class="ic chev"><use href="#i-right"/></svg>
+            </li>
+            <li>
+              <div class="course-ic yellow"><svg class="ic"><use href="#i-book"/></svg></div>
+              <div class="course-body">
+                <div class="course-row"><strong>English</strong><span class="badge ongoing sm">Ongoing</span></div>
+                <span class="course-meta">10A, 11A, 12A &nbsp;•&nbsp; 6 enrolled</span>
+                <div class="progress"><i style="width:80%"></i><b>80%</b></div>
+              </div>
+              <svg class="ic chev"><use href="#i-right"/></svg>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- ===== STUDENTS ===== -->
+    <main class="view page" id="view-students">
+      <div class="page-head"><h2>Students</h2><label class="mini-search wide"><svg class="ic"><use href="#i-search"/></svg><input type="text" id="studentFilter" placeholder="Filter students..."></label></div>
+      <div class="card">
+        <table class="table" id="studentTable">
+          <thead><tr><th>Name</th><th>Class</th><th>Roll No.</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Rohan Mehta</td><td>10A</td><td>01</td><td><span class="badge ongoing sm">Active</span></td></tr>
+            <tr><td>Priya Sharma</td><td>10A</td><td>02</td><td><span class="badge ongoing sm">Active</span></td></tr>
+            <tr><td>Arjun Verma</td><td>11B</td><td>14</td><td><span class="badge ongoing sm">Active</span></td></tr>
+            <tr><td>Sneha Kapoor</td><td>11B</td><td>15</td><td><span class="badge upcoming-b sm">New</span></td></tr>
+            <tr><td>Kabir Singh</td><td>12A</td><td>07</td><td><span class="badge ongoing sm">Active</span></td></tr>
+            <tr><td>Ananya Rao</td><td>12A</td><td>08</td><td><span class="badge ongoing sm">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- ===== ATTENDANCE ===== -->
+    <main class="view page" id="view-attendance">
+      <div class="page-head"><h2>Attendance Log</h2><span class="muted" id="attSummary"></span></div>
+      <div class="card">
+        <table class="table" id="attTable">
+          <thead><tr><th>Student</th><th>Class</th><th>Today</th></tr></thead>
+          <tbody>
+            <tr><td>Rohan Mehta</td><td>10A</td><td><button type="button" class="att-toggle present">Present</button></td></tr>
+            <tr><td>Priya Sharma</td><td>10A</td><td><button type="button" class="att-toggle present">Present</button></td></tr>
+            <tr><td>Arjun Verma</td><td>11B</td><td><button type="button" class="att-toggle absent">Absent</button></td></tr>
+            <tr><td>Sneha Kapoor</td><td>11B</td><td><button type="button" class="att-toggle present">Present</button></td></tr>
+            <tr><td>Kabir Singh</td><td>12A</td><td><button type="button" class="att-toggle present">Present</button></td></tr>
+            <tr><td>Ananya Rao</td><td>12A</td><td><button type="button" class="att-toggle absent">Absent</button></td></tr>
+          </tbody>
+        </table>
+        <p class="hint">Click a status to toggle Present / Absent.</p>
+      </div>
+    </main>
+
+    <!-- ===== TIMETABLE ===== -->
+    <main class="view page" id="view-timetable">
+      <div class="page-head"><h2>Manage Timetable</h2><span class="muted">Click a slot to edit it</span></div>
+      <div class="card">
+        <table class="table tt" id="ttTable">
+          <thead><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr></thead>
+          <tbody>
+            <tr><td>9:00 - 10:00</td><td contenteditable>Mathematics</td><td contenteditable>English</td><td contenteditable>Mathematics</td><td contenteditable>Physics</td><td contenteditable>Biology</td></tr>
+            <tr><td>10:15 - 11:15</td><td contenteditable>Physics</td><td contenteditable>Chemistry</td><td contenteditable>English</td><td contenteditable>Mathematics</td><td contenteditable>Physics</td></tr>
+            <tr><td>12:00 - 1:00</td><td contenteditable>English</td><td contenteditable>Biology</td><td contenteditable>Chemistry</td><td contenteditable>English</td><td contenteditable>Mathematics</td></tr>
+            <tr><td>2:00 - 3:00</td><td contenteditable>Chemistry</td><td contenteditable>Mathematics</td><td contenteditable>Biology</td><td contenteditable>Chemistry</td><td contenteditable>English</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- ===== COURSES ===== -->
+    <main class="view page" id="view-courses">
+      <div class="page-head"><h2>Courses</h2></div>
+      <div class="course-grid">
+        <div class="card"><div class="course-ic blue"><svg class="ic"><use href="#i-users"/></svg></div><h3>Mathematics</h3><p class="muted">10A, 11A, 12A · 8 enrolled</p><div class="progress"><i style="width:75%"></i><b>75%</b></div></div>
+        <div class="card"><div class="course-ic violet"><svg class="ic"><use href="#i-calendar"/></svg></div><h3>Physics</h3><p class="muted">10A, 11B, 12B · 6 enrolled</p><div class="progress"><i style="width:60%"></i><b>60%</b></div></div>
+        <div class="card"><div class="course-ic orange"><svg class="ic"><use href="#i-flask"/></svg></div><h3>Chemistry</h3><p class="muted">11A, 12B · 5 enrolled</p><div class="progress"><i style="width:70%"></i><b>70%</b></div></div>
+        <div class="card"><div class="course-ic violet"><svg class="ic"><use href="#i-book"/></svg></div><h3>Biology</h3><p class="muted">10A, 11B · 4 enrolled</p><div class="progress"><i style="width:50%"></i><b>50%</b></div></div>
+        <div class="card"><div class="course-ic yellow"><svg class="ic"><use href="#i-book"/></svg></div><h3>English</h3><p class="muted">10A, 11A, 12A · 6 enrolled</p><div class="progress"><i style="width:80%"></i><b>80%</b></div></div>
+      </div>
+    </main>
+
+    <!-- ===== ANNOUNCEMENTS ===== -->
+    <main class="view page" id="view-announcements">
+      <div class="page-head"><h2>Announcements</h2></div>
+      <div class="card">
+        <form id="annForm" class="ann-form">
+          <input type="text" id="annInput" placeholder="Write a new announcement..." required>
+          <button type="submit" class="btn-primary">Post</button>
+        </form>
+        <ul class="ann-list" id="annList">
+          <li><div class="act-ic pink"><svg class="ic"><use href="#i-megaphone"/></svg></div><div><strong>Exam schedule - 7 Nov 2025</strong><small>1 day ago</small></div></li>
+          <li><div class="act-ic purple"><svg class="ic"><use href="#i-megaphone"/></svg></div><div><strong>Parent-teacher meeting on Friday</strong><small>3 days ago</small></div></li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- ===== SETTINGS ===== -->
+    <main class="view page" id="view-settings">
+      <div class="page-head"><h2>Settings</h2></div>
+      <div class="card settings">
+        <label class="row"><span>Email notifications</span><input type="checkbox" checked></label>
+        <label class="row"><span>Show attendance alerts</span><input type="checkbox" checked></label>
+        <label class="row"><span>Compact layout</span><input type="checkbox" id="compactToggle"></label>
+      </div>
+    </main>
+
+    <!-- ===== PROFILE ===== -->
+    <main class="view page" id="view-profile">
+      <div class="page-head"><h2>My Profile</h2></div>
+      <div class="card profile-card">
+        <div class="avatar" style="width:90px;height:90px;font-size:28px">AD</div>
+        <div>
+          <h3>Admin</h3>
+          <p class="muted">admin@eduplus.com</p>
+          <p class="muted">EduPlus Student Management System</p>
+          <span class="status"><i></i>Available for work</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Copyright © 2025 <b>EduPlus</b>. All rights reserved.</span>
+      <nav><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Contact</a></nav>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var views = document.querySelectorAll('.view');
+  var navBtns = document.querySelectorAll('.nav button');
+
+  /* ---- Page switching (sidebar buttons, profile icons) ---- */
+  function showView(name) {
+    views.forEach(function (v) { v.classList.toggle('active', v.id === 'view-' + name); });
+    navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.view === name); });
+    closeNotif();
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('[data-view]').forEach(function (el) {
+    el.addEventListener('click', function () { showView(el.dataset.view); });
+  });
+
+  /* ---- Notifications ---- */
+  var notifBtn = document.getElementById('notifBtn');
+  var notifPanel = document.getElementById('notifPanel');
+  function closeNotif() { notifPanel.hidden = true; notifBtn.setAttribute('aria-expanded', 'false'); }
+  notifBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = notifPanel.hidden;
+    notifPanel.hidden = !open;
+    notifBtn.setAttribute('aria-expanded', String(open));
+  });
+  notifPanel.addEventListener('click', function (e) { e.stopPropagation(); });
+  document.addEventListener('click', closeNotif);
+  document.getElementById('notifClear').addEventListener('click', function () {
+    document.getElementById('notifList').innerHTML = '';
+    notifPanel.querySelector('.notif-empty').hidden = false;
+  });
+
+  /* ---- Fullscreen ---- */
+  document.getElementById('fsBtn').addEventListener('click', function () {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  });
+
+  /* ---- Students filter ---- */
+  document.getElementById('studentFilter').addEventListener('input', function (e) {
+    var q = e.target.value.toLowerCase();
+    document.querySelectorAll('#studentTable tbody tr').forEach(function (r) {
+      r.style.display = r.textContent.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+
+  /* ---- Attendance toggle ---- */
+  function attSummary() {
+    var p = document.querySelectorAll('.att-toggle.present').length;
+    var a = document.querySelectorAll('.att-toggle.absent').length;
+    document.getElementById('attSummary').textContent = p + ' present · ' + a + ' absent';
+  }
+  document.querySelectorAll('.att-toggle').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var isPresent = b.classList.contains('present');
+      b.classList.toggle('present', !isPresent);
+      b.classList.toggle('absent', isPresent);
+      b.textContent = isPresent ? 'Absent' : 'Present';
+      attSummary();
+    });
+  });
+  attSummary();
+
+  /* ---- Announcements ---- */
+  document.getElementById('annForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = document.getElementById('annInput');
+    var text = input.value.trim();
+    if (!text) return;
+    var li = document.createElement('li');
+    li.innerHTML = '<div class="act-ic pink"><svg class="ic"><use href="#i-megaphone"/></svg></div><div><strong></strong><small>Just now</small></div>';
+    li.querySelector('strong').textContent = text;
+    document.getElementById('annList').prepend(li);
+    input.value = '';
+  });
+
+  /* ---- Settings: compact layout ---- */
+  document.getElementById('compactToggle').addEventListener('change', function (e) {
+    document.body.classList.toggle('compact', e.target.checked);
+  });
+})();
+</script>
+
+</body>
+</html>
