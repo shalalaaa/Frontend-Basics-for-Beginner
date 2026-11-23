@@ -1,11 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Three Ways to Add CSS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+
+    <header>
+        <h1 style="color: red; background-color: pink;">
+            Three Ways to Add CSS to an HTML File
+        </h1>
+    </header>
+
+    <main>
+
+        <ol>
+            <li>Inline CSS</li>
+            <li>Internal CSS</li>
+            <li>External CSS</li>
+        </ol>
+
+        <p>
+            We're going to learn about all three ways of adding CSS
+            to an HTML file.
+        </p>
+
+        <p>
+            Inline CSS is not generally recommended because we have
+            to add CSS separately to every HTML element we want to style.
+        </p>
+
+        <ol>
+
+            <li>
+                <h2>Inline CSS:</h2>
+            </li>
+
+            <pre><code>&lt;h1 style="color: red; background-color: pink;"&gt;
+    This is Inline CSS
+&lt;/h1&gt;</code></pre>
+
+            <p>
+                Inline CSS is one way of adding CSS directly inside
+                an HTML element using the style attribute.
+                However, it is not generally considered good practice.
+            </p>
+
+            <li>
+                <h2>Internal CSS:</h2>
+            </li>
+
+            <pre><code>&lt;style&gt;
+    div, span {
+        color: brown;
+        background-color: bisque;
+    }
+
+    p {
+        color: pink;
+        background-color: magenta;
+    }
+&lt;/style&gt;</code></pre>
+
+            <p>
+                In general, using internal CSS is not a good practice
+                for full websites, though it is ideal for a few
+                specific scenarios.
+            </p>
+
+            <li>
+                <h2>External CSS:</h2>
+            </li>
+
+            <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+
+            <p>
+                External CSS stores styling rules in a separate
+                .css file linked to HTML pages, making it easy
+                to maintain consistent designs across multiple pages.
+            </p>
+
+            <p>
+                It is generally the best choice for multi-page websites
+                because it reduces code repetition and allows browsers
+                to cache the CSS file.
+            </p>
+
+        </ol>
+
+    </main>
+
 </body>
 </html>
