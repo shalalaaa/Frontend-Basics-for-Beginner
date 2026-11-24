@@ -6,13 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three Ways to Add CSS</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!--This is external css-->
 </head>
+<style>   /*this is internal css. In this li is selector and color: purple is decleration */
+    li {
+        color: purple;
+    }
+</style>
 
 <body>
 
     <header>
-        <h1 style="color: red; background-color: pink;">
+        <h1 style="color: red; background-color: pink;"><!--This is inline css-->
             Three Ways to Add CSS to an HTML File
         </h1>
     </header>
@@ -30,11 +35,6 @@
             to an HTML file.
         </p>
 
-        <p>
-            Inline CSS is not generally recommended because we have
-            to add CSS separately to every HTML element we want to style.
-        </p>
-
         <ol>
 
             <li>
@@ -42,8 +42,12 @@
             </li>
 
             <pre><code>&lt;h1 style="color: red; background-color: pink;"&gt;
-    This is Inline CSS
-&lt;/h1&gt;</code></pre>
+            This is Inline CSS
+            &lt;/h1&gt;</code></pre>
+            <p>
+            Inline CSS is not generally recommended because we have
+            to add CSS separately to every HTML element we want to style.
+            </p>
 
             <p>
                 Inline CSS is one way of adding CSS directly inside
@@ -71,6 +75,9 @@
                 In general, using internal CSS is not a good practice
                 for full websites, though it is ideal for a few
                 specific scenarios.
+                And our style tage would grow too much in html if we 
+                want to do a lot of task. So, we've to use external css.
+
             </p>
 
             <li>
