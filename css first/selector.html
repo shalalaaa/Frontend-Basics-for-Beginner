@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors in CSS</title>
+
+    <style>
+
+        /* Element Selector */
+        h2 {
+            background-color: rgb(198, 251, 233);
+            color: rgb(1, 1, 70);
+        }
+
+        /* Class Selector */
+        .unique {
+            color: rgb(125, 6, 138);
+        }
+
+        /* ID Selector */
+        #pre {
+            color: rgb(110, 2, 2);
+        }
+
+        /* Syntax Examples */
+        .syntax {
+            color: rgb(110, 2, 2);
+            background-color: rgb(218, 213, 213);
+        }
+
+        /* Child Selector */
+        li > p {
+            color: rgb(0, 102, 0);
+        }
+
+        /* Descendant Selector */
+        div p {
+            color: rgb(132, 5, 250);
+        }
+
+        /* Pseudo-classes */
+        a:link {
+            color: green;
+        }
+
+        a:visited {
+            color: yellow;
+        }
+
+        a:hover {
+            color: purple;
+            background-color: rgb(158, 239, 165);
+        }
+
+        a:active {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Selector Tags</h2>
+    </nav>
+
+    <main>
+
+    <p>
+        We're going to talk about many selectors that are used in CSS,
+        but not all of them because we would get to know about them
+        as we do projects. Most of them are not useful all the time.
+    </p>
+
+    <div>
+        <ol>
+
+        <!-- Element Selector -->
+        <li>
+            <h3 class="unique">Element Selector</h3>
+
+            <p>
+                Matches all HTML elements of a specific tag name,
+                such as p, h1, or div.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            h2 {
+                background-color: rgb(198, 251, 233);
+                color: rgb(1, 1, 70);
+            }
+            </pre>
+        </li>
+
+        <!-- Class Selector -->
+        <li>
+            <h3 class="unique">Class Selector</h3>
+
+            <p>
+                Matches every element that has a specific
+                class attribute value.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            .unique {
+                color: rgb(125, 6, 138);
+            }
+            </pre>
+        </li>
+
+                <!-- ID Selector -->
+        <li>
+            <h3 class="unique">ID Selector</h3>
+
+            <p>
+                Matches the single, unique element on the page
+                with a specific ID attribute.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            #pre {
+                color: rgb(110, 2, 2);
+            }
+            </pre>
+        </li>
+
+        <!-- Child Selector -->
+        <li>
+            <h3 class="unique">Child Selector</h3>
+
+            <p>
+                The child combinator (>) selects only the elements
+                that are direct children of a specified parent element.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            li > p {
+                color: rgb(0, 102, 0);
+            }
+            </pre>
+        </li>
+
+        <!-- Descendant Selector -->
+        <li>
+            <h3 class="unique">Descendant Selector</h3>
+
+            <p>
+                Matches any element B that is nested anywhere
+                inside element A.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            div p {
+                color: rgb(132, 5, 250);
+            }
+            </pre>
+        </li>
+
+        <!-- Pseudo-classes -->
+        <li>
+            <h3 class="unique">Pseudo-classes</h3>
+
+            <p>
+                Pseudo-classes select elements based on a special
+                state, user interaction, or their position
+                in the document tree.
+            </p>
+
+            <pre class="syntax">
+            Syntax:
+            a:link {
+                color: green;
+            }
+
+            a:visited {
+                color: yellow;
+            }
+
+            a:hover {
+                color: purple;
+                background-color: lightgray;
+            }
+
+            a:active {
+                color: red;
+            }
+            </pre>
+        </li>
+
+        </ol>
+    </div>
+
+    </main>
+
+    <footer>
+        <a href="https://www.w3schools.com/css/css_selectors.asp">
+            CSS Selectors
+        </a>
+    </footer>
+
+</body>
+</html>
